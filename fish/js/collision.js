@@ -11,3 +11,12 @@ function momFruitsCollision(){
 		}
 	}
 }
+
+//大鱼喂小鱼
+function momBabyCollision(){
+	var l = calLength2(mom.x,mom.y,baby.x,baby.y);
+	if(l<900){
+		//小鱼吃到实物，身体颜色发生变化，帧从头开始
+		baby.babyBodysCount = 0;
+	}
+}

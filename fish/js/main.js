@@ -13,12 +13,15 @@ var deltaTime;
 var bgPic = new Image();
 var ane;
 var fruit;
+
 var mom;
 var mx;//鼠标位置
 var my;
+var momTails =[];//尾部摆动
+var momEyes =[];//眨眼睛
+var momBodys =[];//身体颜色变化
 
 var baby;
-
 var babyTails =[];//尾部摆动
 var babyEyes =[];//眨眼睛
 var babyBodys =[];//身体颜色变化
@@ -52,12 +55,26 @@ function init(){
 	fruit = new fruitObj();
 	fruit.init();
 	
+	//mom
 	mom = new momObj();
 	mom.init();
-	
+	for(var i =0;i<8;i++){
+		momTails[i] = new Image();
+		momTails[i].src = "img/bigTail"+i+".png";
+	}
+	for(var i = 0;i <2;i++){
+		momEyes[i] = new Image();
+		momEyes[i].src ="img/bigEye"+i+".png";
+	}
+//
+	for(var i =0; i<8;i++){
+		momBodys[i] = new Image();
+		momBodys[i].src = "img/bigEat"+i+".png";
+	}
 	mx = canwidth * 0.5;
 	my = canheight * 0.5;
 	
+	//baby
 	for(var i =0;i<8;i++){
 		babyTails[i] = new Image();
 		babyTails[i].src = "img/babyTail"+i+".png";
@@ -93,6 +110,8 @@ function gameloop(){
 	momFruitsCollision()
 	
 	baby.draw();
+	
+	momBabyCollision();
 }
 
 function onMouseMove(e){
