@@ -76,6 +76,9 @@ babyObj.prototype.draw = function (){
 		if(this.babyBodysCount >19){
 			this.babyBodysCount = 19;
 			//同时提示game over
+			data.gameOver = true;
+			//同时大鱼的身体颜色变回最初色，白色。
+			mom.momBodysCount = 0;
 		}
 	}
 	

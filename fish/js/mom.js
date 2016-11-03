@@ -41,8 +41,12 @@ momObj.prototype.draw = function(){
 	//先画的在下面，后画的在前面。
 	ctx1.drawImage(momTails[momTailsCount],-momTails[momTailsCount].width * 0.5+30,-momTails[momTailsCount].height * 0.5);
 	var momBodysCount = this.momBodysCount;
-
-	ctx1.drawImage(momBodys[momBodysCount],-momBodys[momBodysCount].width * 0.5,-momBodys[momBodysCount].height * 0.5);
+	if (data.double ==1) {
+		ctx1.drawImage(momBodyOrange[momBodysCount],-momBodyOrange[momBodysCount].width * 0.5,-momBodyOrange[momBodysCount].height * 0.5);
+	} else{
+		ctx1.drawImage(momBodyBlue[momBodysCount],-momBodyBlue[momBodysCount].width * 0.5,-momBodyBlue[momBodysCount].height * 0.5);
+	}
+	
 	var momEyesCount = this.momEyesCount;
 	ctx1.drawImage(momEyes[momEyesCount],-momEyes[momEyesCount].width * 0.5,-momEyes[momEyesCount].height * 0.5);//因为图片本身也是有大小的。
 	ctx1.restore();

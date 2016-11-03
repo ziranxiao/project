@@ -20,11 +20,15 @@ var my;
 var momTails =[];//尾部摆动
 var momEyes =[];//眨眼睛
 var momBodys =[];//身体颜色变化
+var momBodyOrange = [];
+var momBodyBlue = [];
 
 var baby;
 var babyTails =[];//尾部摆动
 var babyEyes =[];//眨眼睛
 var babyBodys =[];//身体颜色变化
+
+var data;
 window.onload = game;
 function game(){
 	//初始化
@@ -71,6 +75,13 @@ function init(){
 		momBodys[i] = new Image();
 		momBodys[i].src = "img/bigEat"+i+".png";
 	}
+	//大鱼身体颜色变化
+	for (var i = 0; i<8;i++){
+		momBodyOrange[i] = new Image();
+		momBodyBlue[i] = new Image();
+		momBodyOrange[i].src = "img/bigEat"+i+".png";
+		momBodyBlue[i].src = "img/bigEatBlue"+i+".png";
+	}
 	mx = canwidth * 0.5;
 	my = canheight * 0.5;
 	
@@ -91,6 +102,9 @@ function init(){
 	}
 	baby = new babyObj();
 	baby.init();
+	
+	//data
+	data = new dataObj();
 }
 
 //游戏循环
@@ -112,12 +126,17 @@ function gameloop(){
 	baby.draw();
 	
 	momBabyCollision();
+	data.draw();
+	
 }
 
 function onMouseMove(e){
-	if(e.offsetX || e.layerX){
-		mx = (e.offsetX ==undefined )? e.layerX : e.offsetX;
-		my = (e.offsetY ==undefined )? e.layerY : e.offsetY;
+	if(!data.gameOver){
+		if(e.offsetX || e.layerX){
+			mx = (e.offsetX ==undefined )? e.layerX : e.offsetX;
+			my = (e.offsetY ==undefined )? e.layerY : e.offsetY;
 		
+		}
 	}
+	
 }
