@@ -7,6 +7,8 @@ var fruitObj = function (){
 	this.speed=[];//成长的速度、往上飘的速度
 	this.orange = new Image();
 	this.blue = new Image();
+	this.red = new Image();
+	this.white = new  Image();
 }
 fruitObj.prototype.num = 30;//果实的数量
 fruitObj.prototype.init = function(){
@@ -20,6 +22,8 @@ fruitObj.prototype.init = function(){
 	}
 	this.orange.src = "img/fruit.png";
 	this.blue.src = "img/blue.png";
+	this.red.src = "img/red.png";
+	this.white.src = "img/white.png";
 }
 fruitObj.prototype.draw = function(){ 
 	for (var i=0;i<this.num;i++) {
@@ -27,8 +31,12 @@ fruitObj.prototype.draw = function(){
 		if(this.alive[i]){
 			if(this.fruitType[i]=="blue"){
 				var pic =this.blue;
-			}else{
+			}else if(this.fruitType[i]=="orange"){
 				var pic =this.orange;
+			}else if(this.fruitType[i]=="red"){
+				var pic = this.red;
+			}else{
+				var pic = this.white;
 			}
 			if(this.l[i]<=14){
 				this.l[i]+=this.speed[i] * deltaTime;
@@ -54,9 +62,13 @@ fruitObj.prototype.born = function(i){
 	this.alive[i]=true;
 	var ran = Math.random();
 	if(ran<0.2){
-		this.fruitType[i]=  "blue";//orange,blue
+		this.fruitType[i]=  "blue";
+	}else if(ran <0.7){
+		this.fruitType[i]=  "orange";		
+	}else if(ran <0.9){
+		this.fruitType[i]= "red";
 	}else{
-		this.fruitType[i]=  "orange";//orange,blue
+		this.fruitType[i] = "white";
 	}
 	
 }

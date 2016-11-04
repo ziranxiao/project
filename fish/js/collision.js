@@ -13,8 +13,20 @@ function momFruitsCollision(){
 						mom.momBodysCount = 7;
 					if(fruit.fruitType[i]=="blue"){
 						data.double = 2;
-					}else{
+					}else if(fruit.fruitType[i]=="orange"){
 						data.double = 1;
+					}else if(fruit.fruitType[i]=="red"){						
+						if(data.score>0){
+							data.double = -1;
+							
+						}else{
+							data.gameOver = true;
+							mom.momBodysCount = 0;
+							
+						}						
+					}else{
+						data.gameOver = true;
+						mom.momBodysCount = 0;
 					}
 				}
 			}
