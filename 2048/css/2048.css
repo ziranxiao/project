@@ -1,0 +1,46 @@
+*{padding: 0;margin: 0;}
+.clear{
+	clear: both;
+}
+.container{
+	margin: 100px auto;
+	text-align: center;
+	position: relative;
+}
+header h1{
+	padding: 10px;
+	font:800 36px "微软雅黑";
+	
+}
+header a{
+	display: inline-block;
+	padding: 5px;
+	width: 85px;
+	color: #fff;
+	font: 18px simsun;
+	background-color: rosybrown;
+	border-radius: 10px;	
+	text-decoration: none;
+}
+header a:hover{
+	background-color: gray;
+}
+header p{
+	padding: 10px;
+	font: 600 16px "微软雅黑";	
+}
+
+.gridContainer{
+	margin: auto;
+	width: 400px;
+	height: 400px;
+	padding: 10px;
+	background-color: #808080;
+	position: relative;
+}
+.grid-cell{
+	position: absolute;
+	width:100px;
+	height: 100px;
+	background-color: #BC8F8F;
+}
