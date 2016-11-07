@@ -11,28 +11,25 @@ function momFruitsCollision(){
 					mom.momBodysCount++;
 					if(mom.momBodysCount > 7)
 						mom.momBodysCount = 7;
-					if(fruit.fruitType[i]=="blue"){
-						data.double = 2;
-					}else if(fruit.fruitType[i]=="orange"){
-						data.double = 1;
-					}else if(fruit.fruitType[i]=="red"){						
-						if(data.score>0){
-							data.double = -1;
-							
+						if(fruit.fruitType[i]=="blue"){
+							data.double = 2;
+						}else if(fruit.fruitType[i]=="orange"){
+							data.double = 1;
+						}else if(fruit.fruitType[i]=="red"){						
+							if(data.score>0){
+								data.double = -1;															
+							}else{
+								data.gameOver = true;
+								mom.momBodysCount = 0;								
+							}						
 						}else{
 							data.gameOver = true;
 							mom.momBodysCount = 0;
-							
-						}						
-					}else{
-						data.gameOver = true;
-						mom.momBodysCount = 0;
-					}
+						}
+					wave.born(fruit.x[i],fruit.y[i]);
 				}
 			}
-		}
-	
-	
+		}			
 }
 
 //大鱼喂小鱼
@@ -48,7 +45,8 @@ function momBabyCollision(){
 				//大鱼碰上小鱼之后，大鱼身体颜色恢复原状,帧为0
 				mom.momBodysCount = 0;
 				//score update
-				data.addScore();		
+				data.addScore();
+				halo.born(mom.x,mom.y);
 			}
 		}	
 	}

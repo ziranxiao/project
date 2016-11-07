@@ -29,6 +29,8 @@ var babyEyes =[];//眨眼睛
 var babyBodys =[];//身体颜色变化
 
 var data;
+var wave;
+var halo;//小圈圈
 window.onload = game;
 function game(){
 	//初始化
@@ -105,6 +107,12 @@ function init(){
 	
 	//data
 	data = new dataObj();
+	
+	wave = new waveObj();
+	wave.init();
+	
+	halo = new haloObj();
+	halo.init();
 }
 
 //游戏循环
@@ -127,6 +135,8 @@ function gameloop(){
 	
 	momBabyCollision();
 	data.draw();
+	wave.draw();
+	halo.draw();
 	
 }
 
